@@ -125,6 +125,8 @@ no_sedi_nosed <- db_df_no_sedi_final %>%
 
 sediment_vector <- db_df_final$Sediment
 
+library(vegan)
+
 # No sediment - continuous sediment vector
 set.seed(777)
 adonis2(no_sedi_nosed ~ sediment_vector, method = "bray", permutations = 999)
@@ -335,6 +337,7 @@ cover_long <- db_df_final %>%
 # Add Group column
 cover_long_grouped <- cover_long %>%
   left_join(group_df, by = "Species")
+
 
 # Summarise percent cover by group for each image
 
